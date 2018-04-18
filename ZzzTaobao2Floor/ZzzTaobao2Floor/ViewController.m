@@ -131,7 +131,6 @@
     return cell;
 }
 
-
 #pragma mark - UIScrollViewDelegate
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -174,6 +173,7 @@
     }
 }
 
+// 以下方法可以监听更多ScrollView的事件
 -(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     NSLog(@"scrollViewWillEndDragging");
