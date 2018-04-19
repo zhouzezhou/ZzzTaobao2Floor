@@ -51,7 +51,7 @@
 {
     [self.view setBackgroundColor: [UIColor cyanColor]];
     
-    // 关于StatusBar的前景色的设置请自行百度,此处就不设置了
+    // 关于StatusBar的背景色的设置请自行百度,此处就不设置了
     
     // 1楼
     _backgroudScrollView1Floor = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, floor1Height)];
