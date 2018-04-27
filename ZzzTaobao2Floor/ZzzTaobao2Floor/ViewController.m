@@ -77,7 +77,7 @@
     testTableview.estimatedSectionFooterHeight = 0;
     [testTableview setBackgroundColor:[UIColor grayColor]];
     [testTableview setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [_backgroudScrollView1Floor addSubview:testTableview];
+//    [_backgroudScrollView1Floor addSubview:testTableview];
     
     // 2楼
     _upstairsView = [[UIView alloc] initWithFrame:CGRectMake(0, -kScreenHeight , kScreenWidth, floor2Height)];
@@ -135,15 +135,26 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    // 未达到开启二楼时的Offset(偏移量)时一楼跟着往下滑动
-    float newPointY2FloorView = - floor2Height - scrollView.contentOffset.y;
-    NSLog(@"newPointY2FloorView is: %f", newPointY2FloorView);
-    CGRect newRect2Floor = CGRectMake(0, newPointY2FloorView,  kScreenWidth, floor2Height);
-    _upstairsView.frame = newRect2Floor;
+    //test
+    NSLog(@"scrollView.contentOffset.y: %f", scrollView.contentOffset.y);
+    
+    // 这个判断防止快速滑动的时候产生的偏移过多界面消失
+    if([scrollView isScrollEnabled])
+    {
+        // 未达到开启二楼时的Offset(偏移量)时一楼跟着往下滑动
+        // 探究为何:scrollview初始化的时候会调用一次scrollViewDidScroll方法，会在y轴负方向产生一个StatusBar的偏移量,所以在下面的计算方式中减去一个StatusBar的高度 Zzz 2018年 4月27日 星期五 21时17分40秒 CST
+        float newPointY2FloorView = - floor2Height - scrollView.contentOffset.y - kStatusBarHeight;
+        //    NSLog(@"newPointY2FloorView is: %f", newPointY2FloorView);
+        CGRect newRect2Floor = CGRectMake(0, newPointY2FloorView,  kScreenWidth, floor2Height);
+        _upstairsView.frame = newRect2Floor;
+    }
+    
     
     // 达到开启二楼时的Offset，启动进入二楼时的动画效果
-    if(scrollView.contentOffset.y < - enter2FloorOffset)
+    if(scrollView.contentOffset.y < - enter2FloorOffset && [scrollView isScrollEnabled])
     {
+        NSLog(@"进入二楼");
+        
         // 停用滑动，但已被滑动的视图会瞬间回到原点
         [scrollView setScrollEnabled:NO];
         
