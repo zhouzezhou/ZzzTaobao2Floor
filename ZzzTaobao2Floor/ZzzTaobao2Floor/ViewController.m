@@ -61,13 +61,21 @@
     [_backgroudScrollView1Floor setScrollEnabled:YES];
     _backgroudScrollView1Floor.userInteractionEnabled = YES;
     _backgroudScrollView1Floor.delegate = self;
+    // 设置此项让scrollview不会无故向下偏移一个状态栏的高度
+    _backgroudScrollView1Floor.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     [self.view addSubview:_backgroudScrollView1Floor];
     
-    UILabel *testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, kScreenWidth, 50.f)];
+    UILabel *testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50.f)];
     [testLabel setBackgroundColor:[UIColor redColor]];
     [_backgroudScrollView1Floor addSubview:testLabel];
     [testLabel setTextAlignment:NSTextAlignmentCenter];
     [testLabel setText:@"Zzz在一楼，向下滑动试试"];
+    
+//    UILabel *testLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(0, kScreenHeight - 50, kScreenWidth, 50.f)];
+//    [testLabel2 setBackgroundColor:[UIColor redColor]];
+//    [_backgroudScrollView1Floor addSubview:testLabel2];
+//    [testLabel2 setTextAlignment:NSTextAlignmentCenter];
+//    [testLabel2 setText:@"我在底部"];
     
     UITableView *testTableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, floor1Height - 150) style:UITableViewStyleGrouped];
     //    testTableview.delegate = self;
@@ -77,14 +85,14 @@
     testTableview.estimatedSectionFooterHeight = 0;
     [testTableview setBackgroundColor:[UIColor grayColor]];
     [testTableview setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-//    [_backgroudScrollView1Floor addSubview:testTableview];
+    [_backgroudScrollView1Floor addSubview:testTableview];
     
     // 2楼
     _upstairsView = [[UIView alloc] initWithFrame:CGRectMake(0, -kScreenHeight , kScreenWidth, floor2Height)];
     [self.view addSubview:_upstairsView];
     [_upstairsView setBackgroundColor:[UIColor orangeColor]];
     
-    UILabel *secondFloorLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, floor2Height - 50 - kStatusBarHeight, kScreenWidth, 50)];
+    UILabel *secondFloorLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, floor2Height - 50, kScreenWidth, 50)];
     [secondFloorLabel setText:@"Zzz在二楼,点击返回按钮回到一楼"];
     [secondFloorLabel setTextAlignment:NSTextAlignmentCenter];
     [_upstairsView addSubview:secondFloorLabel];
