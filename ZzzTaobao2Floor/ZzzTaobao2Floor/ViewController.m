@@ -190,6 +190,13 @@
             scrollView.frame = endRect1Floor;
         }];
     }
+    // scrollview已经滑到底时不能再向上滑动（关闭底部的弹簧效果）
+    else if(scrollView.contentOffset.y >= 0)
+    {
+        CGPoint offset = scrollView.contentOffset;
+        offset.y = 0;
+        scrollView.contentOffset = offset;
+    }
 }
 
 // 以下方法可以监听更多ScrollView的事件
