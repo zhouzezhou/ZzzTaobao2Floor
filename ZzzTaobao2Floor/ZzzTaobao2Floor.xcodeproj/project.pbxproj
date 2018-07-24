@@ -283,15 +283,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = CB29T9LDGP;
 				INFOPLIST_FILE = ZzzTaobao2Floor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zhouzezhou.ZzzTaobao2Floor;
+				PRODUCT_BUNDLE_IDENTIFIER = zzz.dev.demo3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5a17cdc4-0bfc-4ff5-a8ba-a64e843f7d56";
+				PROVISIONING_PROFILE_SPECIFIER = "Zzz DEMO Project 3 Dev";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -300,15 +302,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = CB29T9LDGP;
 				INFOPLIST_FILE = ZzzTaobao2Floor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zhouzezhou.ZzzTaobao2Floor;
+				PRODUCT_BUNDLE_IDENTIFIER = zzz.dev.demo3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5a17cdc4-0bfc-4ff5-a8ba-a64e843f7d56";
+				PROVISIONING_PROFILE_SPECIFIER = "Zzz DEMO Project 3 Dev";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
